@@ -1,0 +1,55 @@
+#  Local .terraform directories
+**/.terraform*
+**/.cache*
+**/sec/*
+*.binary
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .lock.hcl files
+*.lock.hcl
+.terraform.lock.hcl
+
+# .tfvars files
+*secrets.tfvars
+
+# OpenStack files
+*.raw
+*.venv
+
+# Ruby
+Gemfile.lock
+
+# kitchen.ci
+.kitchen
+
+# sphinx docs build
+*_build
+
+*.zip
+.DS_Store
+*_token
+*_token.json
+*secret*.json
+*_bootstrap.json
+vault_init.json
+.idea
+.vscode
+.local
+.vault-token
+notes.txt
+*.log
+*.env
+dd.env
+
+# Node js
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist

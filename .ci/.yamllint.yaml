@@ -1,0 +1,12 @@
+---
+extends: default
+# For all rules
+ignore: |
+  **/.terraform*
+  **/node_modules*
+rules:
+  line-length:
+    max: 100
+    level: warning
+  indentation:
+    indent-sequences: whatever
