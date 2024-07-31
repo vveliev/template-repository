@@ -17,7 +17,7 @@ ifdef IS_WINDOWS
 	@-echo "WINDOWS detected. Installing necessary python packages"
 	pip install pre-commit
 else ifdef IS_LINUX
-	apt-get -y install pre-commit ruby
+	sudo apt-get -y install pre-commit ruby golang-go
 else
 	brew install pre-commit
 # Git Leaks require
