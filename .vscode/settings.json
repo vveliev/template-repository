@@ -1,0 +1,24 @@
+{
+    "cSpellTech.enabled": true,
+    "cSpellTech.expand": false,
+    "go.useLanguageServer": true,
+    "go.languageServerFlags": [
+        "-rpc.trace"
+    ],
+    "go.languageServerExperimentalFeatures": {
+        "diagnostics": true,
+        "documentLink": true
+    },
+    "[go]": {
+        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+        "editor.codeLens": false
+    },
+    "gopls": {
+        "usePlaceholders": true,
+        "completionDocumentation": true
+    }
+}

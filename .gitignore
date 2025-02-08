@@ -36,7 +36,6 @@ Gemfile.lock
 *_bootstrap.json
 vault_init.json
 .idea
-.vscode
 .local
 .vault-token
 notes.txt
