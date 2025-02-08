@@ -20,5 +20,11 @@
     "gopls": {
         "usePlaceholders": true,
         "completionDocumentation": true
+    },
+    "[markdown]": {
+        "editor.tabSize": 2
+    },
+    "[yaml]": {
+        "editor.tabSize": 2
     }
 }
