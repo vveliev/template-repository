@@ -24,3 +24,35 @@ else
 	brew install go
 endif
 	pre-commit install
+
+setup:
+ifeq ($(strip $(DEST)),)
+	@echo "Usage: make setup DEST=../someProject [TOOLCHAIN=toolchain_name]"
+	@exit 1
+endif
+ifeq ($(shell echo $(DEST) | cut -c1),/)
+	rsync -av --exclude='.vscode/*/' --exclude='.git/' --exclude='*.template' . $(DEST)
+else
+	rsync -av --exclude='.vscode/*/' --exclude='.git/' --exclude='*.template' . ../$(DEST)
+endif
+ifdef TOOLCHAIN
+	@if [ -d ".vscode/$(TOOLCHAIN)" ]; then \
+		if [ "$(shell echo $(DEST) | cut -c1)" = "/" ]; then \
+			mkdir -p $(DEST)/.vscode; \
+			rsync -av .vscode/$(TOOLCHAIN)/ $(DEST)/.vscode/; \
+		else \
+			mkdir -p ../$(DEST)/.vscode; \
+			rsync -av .vscode/$(TOOLCHAIN)/ ../$(DEST)/.vscode/; \
+		fi \
+	fi
+endif
+	# Overwrite destination files with templates if available
+	@find . -name '*.template' | while read template; do \
+		echo "Copying $$template"; \
+		dest_file=$${template%.template}; \
+		if [ "$(shell echo $(DEST) | cut -c1)" = "/" ]; then \
+			cp $$template $(DEST)/$$dest_file; \
+		else \
+			cp $$template ../$(DEST)/$$dest_file; \
+		fi; \
+	done
